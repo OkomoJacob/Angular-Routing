@@ -5,10 +5,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent},
-  { path: 'forgot-password', component: ForgotPasswordComponent},
-  { path: '**', component: NotFoundComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full'}
+  { path: 'login', component: LoginComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: '**', component: NotFoundComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'admin', 
+    loadChildren: () => import('./modules/admin/admin.module')
+    .then((m) => m.AdminModule), 
+  }
 ];
 
 @NgModule({
